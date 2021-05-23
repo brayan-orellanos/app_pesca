@@ -19,7 +19,6 @@
     $mp = metodo_prop();
     $emb = embarcacion();
     $mtp = metodo_pesca();
-    $zona_pes = zona_pesca();
     $caballos_fuerza = caballos_fuerza();
 ?>
 
@@ -83,18 +82,18 @@
                 </div>
 
                 <div class="mb-4 col-md-6">
-                    <label for="name" class="form-label">Nombre</label>
+                    <label for="name" class="form-label">Nombre*</label>
                     <input type="text" id="name_captura" name="name_captura" class="form-control" value="<?php if(isset($_POST['buscar'])) {echo $campos['name'];} ?>">
                 </div>
 
                 <div class="mb-4 col-md-6">
-                    <label for="ambarcacion" class="form-label">Nombre de embarcacion</label>
+                    <label for="ambarcacion" class="form-label">Nombre de embarcacion*</label>
                     <input type="text" id="embarcacion" name="embarcacion" class="form-control"
                         value="<?php if(isset($_POST['buscar'])) {echo $campos['name_embarcacion'];} ?>">
                 </div>
 
                 <div class="mb-4 col-md-6">
-                    <label for="selects" class="form-label">Metodo de Propulsion</label>
+                    <label for="selects" class="form-label">Metodo de Propulsion*</label>
                     <select name="selects" id="selects" class="form-select">
                     <?php 
                         while($prop = $metodo_prop->fetch_assoc()) {
@@ -134,7 +133,7 @@
                 </div>
 
                 <div class="mb-4 col-md-6" id="tipEmb">
-                    <label for="checks" class="form-label d-block">Tipo de embarcacion</label>
+                    <label for="checks" class="form-label d-block">Tipo de embarcacion*</label>
                     <?php
                         while($checks = $embarcacion->fetch_assoc()) {
                             if($campos['tipo_embarcacion'] == $checks['id']) {
@@ -154,7 +153,7 @@
                 </div>
 
                 <div class="mb-4 col-md-6">
-                    <label for="selectd" class="form-label">Metodo de pesca</label>
+                    <label for="selectd" class="form-label">Metodo de pesca*</label>
                     <select name="selectd" id="selectd" class="form-select">
                         <?php 
                             while($selects = $metodo_pesca->fetch_assoc()) {
@@ -168,16 +167,14 @@
                 </div>
 
                 <div class="mb-4 col-md-6">
-                    <label for="selectx" class="form-label">Zona de pesca</label>
+                    <label for="selectx" class="form-label">Zona de pesca*</label>
                     <select name="selectx" id="selectx" class="form-select">
+                        <option value="0" selected>Seleccionar una zona</option>
                         <?php 
                             while($selects = $zona_pesca->fetch_assoc()) {
-                                if($campos['zona_pesca'] == $selects['id']) {
                         ?>
-                            <option value="<?php echo $selects['id']; ?>" selected><?php echo $selects['name']; ?></option>
-                        <?php } else {?>
                             <option value="<?php echo $selects['id']; ?>"><?php echo $selects['name']; ?></option>
-                        <?php }} ?>
+                        <?php } ?>
                     </select>
                 </div>
 
@@ -224,7 +221,7 @@
 
                 <div class="mb-4 col-md-6">
                     <label for="ejemplares" class="form-label">Numero de ejemplares*</label>
-                    <input type="number" class="form-control" name="ejemplares" id="ejemplares" placeholder="Numero de ejemplares">
+                    <input type="number" class="form-control" name="ejemplares" id="ejemplares" min="1">
                 </div>
 
                 <div class="mb-4 col-md-6">
@@ -342,18 +339,6 @@
                                 </select>
                             </div>
 
-                            <div class="mb-4">
-                                <label for="zona_pesca" class="form-label">zona de pesca*</label>
-                                <select name="zona_pesca" id="zona_pesca" class="form-select">
-                                    <option value="0" selected>Seleccione una zona</option>
-                                <?php 
-                                    while($result = $zona_pes->fetch_assoc()) {
-                                ?>
-                                    <option value="<?php echo $result['id']; ?>"><?php echo $result['name']; ?></option>
-                                <?php } ?>
-                                </select>
-                            </div>
-
                             <div class="modal-footer">
                                 <input type="button" class="btn btn-secondary" data-bs-dismiss="modal" value="Cerrar"></input>
                                 <input type="submit" class="btn btn-primary" value="Guardar"></input>
@@ -375,7 +360,6 @@
     </script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-p34f1UUtsS3wqzfto5wAAmdvj+osOnFyQFpp4Ua3gs/ZVWx6oOypYoCJhGGScy+8" crossorigin="anonymous" type="module"></script>
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@10"></script>
-    <script src="../datos_biologicos/datos.js"></script>
     <script type="module" src="../scripts/guardar_usuario.js"></script>
 </body>
 

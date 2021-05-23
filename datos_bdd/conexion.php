@@ -7,7 +7,7 @@
     $border = '';
     $display = 'd-none';
     $enviar = '';
-
+    
     $mysqli = new mysqli(DB_HOST, DB_USER, DB_PASSWORD, DB_DATABASE);
     $mysqli->query("SET NAMES 'utf8'");
     $result = '';
@@ -102,6 +102,24 @@
     function caballos_fuerza() {
         global $mysqli, $result;
         $sql = "SELECT * FROM caballos_fuerza";
+        return $mysqli->query($sql);
+    }
+
+    function sexo() {
+        global $mysqli;
+        $sql = "SELECT * FROM sexo";
+        return $mysqli->query($sql);
+    }
+
+    function cComercial() {
+        global $mysqli;
+        $sql = "SELECT * FROM categoria_comercial";
+        return $mysqli->query($sql);
+    }
+
+    function insert_datos($fecha, $lista, $lTotal, $lEstandar, $lHorquilla, $pCorporal, $pEviserado, $pTotal, $sexo, $eGonodal, $cComercial) {
+        global $mysqli;
+        $sql = "INSERT INTO `datos_biologicos`(`fecha`, `Especie`, `lTotal`, `lEstandar`, `lHorquilla`, `pCorporal`, `pEviserado`, `pTotal`, `sexo`, `eGonodal`, `cComercial`) VALUES ('{$fecha}', '{$lista}', '{$lTotal}', '{$lEstandar}', '{$lHorquilla}', '{$pCorporal}', '{$pEviserado}', '{$pTotal}', '{$sexo}', '{$eGonodal}', '{$cComercial}')";
         return $mysqli->query($sql);
     }
 ?>

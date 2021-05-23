@@ -16,12 +16,11 @@ const num_pescadores = document.getElementById('num_pescadores')
 const metPro = document.getElementById('selects')
 const tipEmb = document.getElementsByClassName('check')
 const metPes = document.getElementById('selectd')
-const zonaPes = document.getElementById('selectx')
 let text = ''
 let erP = document.getElementById('p')
 
 
-const disables = [namee, embarcacion, metPro, metPes, zonaPes]
+const disables = [namee, embarcacion, metPro, metPes]
 const dates = [namee, embarcacion, fechaLlegada, fechaSalida, horaLlegada, horaSalida, especie, presentacion, categoria, ejemplares, peso, valor, num_pescadores]
 
 for(item in disables) {

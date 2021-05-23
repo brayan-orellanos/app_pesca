@@ -14,7 +14,7 @@
     require_once('../datos_bdd/conexion.php');
 
     if($_POST) {
-        $id_embarcacion = isset($_POST['id_embarcacion']) ? $_POST['id_embarcacion'] : 'puta mierda';
+        $id_embarcacion = isset($_POST['id_embarcacion']) ? $_POST['id_embarcacion'] : '';
         $num_pescadores = isset($_POST['num_pescadores']) ? $_POST['num_pescadores'] : 0;
         $fecha_llegada = isset($_POST['fecha_llegada']) ? $_POST['fecha_llegada'] : '';
         $fecha_salida = isset($_POST['fecha_salida']) ? $_POST['fecha_salida'] : '';

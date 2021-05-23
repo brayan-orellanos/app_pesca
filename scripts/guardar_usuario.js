@@ -7,12 +7,12 @@ const check1 = document.getElementById('checkd1')
 const check2 = document.getElementById('checkd2')
 const parentSelect = document.getElementById('checks2')
 const metod_pes = document.getElementById('metodo_pes2')
-const zona_pesca = document.getElementById('zona_pesca')
 const caballosF = document.getElementById('caballos_fuerza')
+const zonaPes = document.getElementById('selectx')
 let parrafo = ''
 
-const datos = [nuevoNombre, nameEmb, metod_prop, metod_pes, zona_pesca, caballosF]
-const disab = [metod_prop, metod_pes, zona_pesca, caballosF]
+const datos = [nuevoNombre, nameEmb, metod_prop, metod_pes, caballosF]
+const disab = [metod_prop, metod_pes, caballosF,zonaPes]
 
 /*
 const xhr = new XMLHttpRequest()
